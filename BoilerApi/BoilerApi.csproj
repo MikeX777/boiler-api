@@ -35,10 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\BoilerApi.Service\BoilerApi.Service.csproj" />
     <ProjectReference Include="..\Boilerplate.Model\Boilerplate.Model.csproj" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BoilerApi.Configuration;
 using BoilerApi.Middleware;
+using BoilerApi.Service.V1;
 using Boilerplate.Model;
 using Boilerplate.Model.Api;
 using Boilerplate.Model.Exceptions;
@@ -46,7 +47,7 @@ builder.Logging.AddSerilog();
 builder.Services.AddLazyCache();
 builder.Services.AddMediatR(cfg =>
 {
-    cfg.RegisterServicesFromAssemblies([typeof(ValidationBehavior<,>).Assembly,]);
+    cfg.RegisterServicesFromAssemblies([typeof(ValidationBehavior<,>).Assembly, typeof(DummyHandler).Assembly]);
     cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
 });
 builder.Services

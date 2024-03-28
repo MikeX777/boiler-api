@@ -1,4 +1,6 @@
 ﻿using Asp.Versioning;
+using BoilerApi.Abstractions;
+using BoilerApi.Service.V1;
 using Boilerplate.Model.Api;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +27,7 @@ namespace BoilerApi.Controllers.V1
     [ProducesResponseType(Status500InternalServerError, Type = typeof(ApiProblemDetails))]
     [Consumes("application/json")]
     [Produces("application/json")]
-    public class DummyController(IMediator mediator) : ControllerBase
+    public class DummyController(IMediator mediator) : RespondController
     {
         private readonly IMediator mediator = mediator;
 
@@ -38,6 +40,6 @@ namespace BoilerApi.Controllers.V1
         [SwaggerOperation("A dummy action used for general get.")]
         [ProducesResponseType(Status200OK, Type = typeof(IEnumerable<string>))]
         public async Task<IActionResult> GetDummy() =>
-            Ok(new List<string> { "test1", "test2" });
+            Respond(await mediator.Send(new GetDummyValues()));
     }
 }
