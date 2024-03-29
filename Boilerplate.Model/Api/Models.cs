@@ -51,9 +51,9 @@ namespace Boilerplate.Model.Api
         /// </summary>
         public ApiProblemDetailsOrigination Origination { get; set; } = ApiProblemDetailsOrigination.Unspecified;
         /// <summary>
-        /// A collection of errors that occured with this problem.
+        /// A collection of errors that occurred with this problem.
         /// </summary>
-        public ICollection<Fault> Errors { get; set; } = new List<Fault>();
+        public ICollection<Fault> Errors { get; set; } = [];
 
         /// <summary>
         /// A static method to create a <see cref="ApiProblemDetails"/> instance.

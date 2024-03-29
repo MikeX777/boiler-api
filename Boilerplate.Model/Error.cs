@@ -10,7 +10,7 @@ namespace Boilerplate.Model
         /// <summary>
         /// An identifier to identify the request.
         /// </summary>
-        public Guid RequestId { get; set; }
+        public string RequestId { get; set; } = string.Empty;
         /// <summary>
         /// A collection of errors that are attached to this response.
         /// </summary>
